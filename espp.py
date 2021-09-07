@@ -23,8 +23,8 @@ if re.search(re_yes, yn1):
 
     yn2 = input("Have you reduced your ESPP contribution a second time to zero in this period (y/N)? ")
     if re.search(re_yes, yn2):
-        x2 = int(input("On what paycheck cycle did you stop your ESPP contribution (2-{pay_cycles})? "))
-        x2 = x2 - 1 if x2 in range(2, pay_cycles+1) else sys.maxsize
+        x2 = int(input(f"On what paycheck cycle did you stop your ESPP contribution (2-{pay_cycles})? "))
+        x2 = x2 if x2 in range(2, pay_cycles+1) else sys.maxsize
     else:
         # Contribution reduced only once
         x2 = pay_cycles
