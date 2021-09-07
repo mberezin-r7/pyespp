@@ -34,7 +34,13 @@ else:
     x2 = sys.maxsize
     y2 = 0
 
+# The ESPP discount is 15% off the lower of either
+# the closing price of the stock on the first day of this offering period, OR
+# the closing price of the stock on the specified purchase date
 rpd_purchase_price = min(rpd_prev, rpd_curr) * 0.85
+
+# Initial contribution per paycheck elected during open enrollment * # of paychecks contributing this amount
+# + decreased contribution per paycheck reduced during purchase period * # of paychecks contributing this amount
 espp_contribution = min(x1, pay_cycles) * y1 + (x2 - x1) * y2
 
 espp_purchase_value = espp_contribution / rpd_purchase_price * rpd_curr
