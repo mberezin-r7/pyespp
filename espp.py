@@ -7,10 +7,10 @@ re_yes = "[Yy]([Ee][Ss])?"
 pay_cycles = 13
 
 # Assume the current stock price will be the price on upcoming purchase date
-rpd_curr = float(input("What is the stock price today? "))
-rpd_prev = float(input("What was the stock price at the beginning of this ESPP period? "))
+rpd_curr = float(input("What is the stock price today? $"))
+rpd_prev = float(input("What was the stock price at the beginning of this ESPP period? $"))
 
-y1 = float(input("How much $ do you contribute to ESPP per paycheck? "))
+y1 = float(input("How much $ do you contribute to ESPP per paycheck? $"))
 
 yn1 = input("Have you reduced your ESPP contribution in this period (y/N)? ")
 if re.search(re_yes, yn1):
@@ -20,7 +20,7 @@ if re.search(re_yes, yn1):
     # +1 to account for range() method excluding the last value
     x1 = x1 if x1 in range(1, pay_cycles+1) else sys.maxsize
 
-    y2 = float(input("How much $ is your reduced ESPP contribution per paycheck? "))
+    y2 = float(input("How much $ is your reduced ESPP contribution per paycheck? $"))
 
     yn2 = input("Have you reduced your ESPP contribution a second time to zero in this period (y/N)? ")
     if re.search(re_yes, yn2):
@@ -35,7 +35,7 @@ else:
     x2 = sys.maxsize
     y2 = 0
 
-prev_carry_forward = float(input("How much $ is carrying forward from a previous ESPP purchase period? "))
+prev_carry_forward = float(input("How much $ is carrying forward from a previous ESPP purchase period? $"))
 
 # The ESPP discount is 15% off the lower of either
 # the closing price of the stock on the first day of this offering period, OR
@@ -62,5 +62,5 @@ print(f"Your purchase price is\t${rpd_purchase_price:.2f} per share")
 print(f"You have purchased\t{rpd_shares} shares of RPD")
 print(f"For a total price of\t${espp_purchase_price:.2f}")
 print(f"You have remaining\t${espp_carry_forward:.2f} carrying forward to the next ESPP period")
-print(f"Your purchase is worth\t${espp_purchase_value:.2f}")
+print(f"Your purchase is worth\t${espp_purchase_value:.2f} today")
 print(f"Your taxable gain is\t${taxable_gain:.2f}")
