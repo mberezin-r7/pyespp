@@ -46,6 +46,14 @@ Log in to ETRADE. Go to Stock Plan > My Account > Stock Plan Confirmations. Clic
 
 `Your taxable gain is $X`  = Purchase Confirmation > Purchase Details > Calculation of Gain > Taxable Gain
 
+### Why do you ask for my ESPP contribution per paycheck?
+
+During an ESPP purchase period, you have the option to reduce your per-paycheck contribution once, and also to subsequently stop your per-paycheck contribution. These changes can happen at any number pay cycle in the ESPP purchase period, and if you do not modify your contribution they do not happen at all.
+
+To correctly calculate your total ESPP contribution, you must enter your per-paycheck contribution after each modification, as well as the number pay cycle upon which each modification took place.
+
+If you do not wish for the script to derive your total ESPP contribution from your per-paycheck contributions, you can enter your final total ESPP contribution as a one-time lump sum.
+
 ### How do I input my final total ESPP contribution for this period, instead of my contribution per paycheck?
 
 Let `X` be your final total ESPP contribution for this period. Enter the following responses to each prompt.
@@ -58,3 +66,11 @@ How much $ is your reduced ESPP contribution per paycheck? $0
 Have you reduced your ESPP contribution a second time to zero in this period (y/N)? NO
 How much $ is carrying forward from a previous ESPP purchase period? $0
 ```
+
+## Disclaimers
+
+Do not trust me. I am not a financial advisor. I am not liable for any decisions you make based on the values you put in to this script.
+
+You should read the code before you use this script, it's short and well-commented.
+
+This script is not officially distributed by Rapid7. This script is intended for personal use only. 
