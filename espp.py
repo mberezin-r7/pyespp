@@ -40,7 +40,8 @@ prev_carry_forward = float(input("How much $ is carrying forward from a previous
 # The ESPP discount is 15% off the lower of either
 # the closing price of the stock on the first day of this offering period, OR
 # the closing price of the stock on the specified purchase date
-rpd_purchase_price = min(rpd_prev, rpd_curr) * 0.85
+# ESPP rounds purchase price per share to the nearest penny
+rpd_purchase_price = round((min(rpd_prev, rpd_curr) * 0.85), 2)
 
 # Initial contribution per paycheck elected during open enrollment * # of paychecks contributing this amount
 # + decreased contribution per paycheck reduced during purchase period * # of paychecks contributing this amount
@@ -52,13 +53,14 @@ rpd_shares = math.floor(espp_contribution / rpd_purchase_price)
 espp_purchase_price = rpd_shares * rpd_purchase_price
 espp_purchase_value = rpd_shares * rpd_curr
 
-espp_rollover = espp_contribution - espp_purchase_price
+espp_carry_forward = espp_contribution - espp_purchase_price
+taxable_gain = espp_purchase_value - espp_purchase_price
 
 print()
-print(f"You have contributed\t${round(espp_contribution, 2):.2f} to this ESPP period")
-print(f"Your purchase price is\t${round(rpd_purchase_price, 2):.2f} per share")
+print(f"You have contributed\t${espp_contribution:.2f} to this ESPP period")
+print(f"Your purchase price is\t${rpd_purchase_price:.2f} per share")
 print(f"You have purchased\t{rpd_shares} shares of RPD")
-print(f"For a total price of\t${round(espp_purchase_price, 2):.2f}")
-print(f"You have remaining\t${round(espp_rollover, 2):.2f} carrying forward to the next ESPP period")
-print(f"Your purchase is worth\t${round(espp_purchase_value, 2):.2f}")
-print(f"Your taxable gain is\t${round(espp_purchase_value-espp_contribution, 2):.2f}")
+print(f"For a total price of\t${espp_purchase_price:.2f}")
+print(f"You have remaining\t${espp_carry_forward:.2f} carrying forward to the next ESPP period")
+print(f"Your purchase is worth\t${espp_purchase_value:.2f}")
+print(f"Your taxable gain is\t${taxable_gain:.2f}")
