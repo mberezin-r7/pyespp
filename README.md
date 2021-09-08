@@ -14,13 +14,13 @@ Simply run the script with `python espp.py` and fill in the prompts.
 
 ## FAQ
 
-#### Where can I find my Employee Stock Plan Purchase Confirmation documents?
+### Where can I find my Employee Stock Plan Purchase Confirmation documents?
 
 Log in to ETRADE. Go to Stock Plan > My Account > Stock Plan Confirmations. Click Download on the rows where Benefit Type = ESPP.
 
-#### What field does each prompt and result variable correspond to?
+### What field does each prompt and result variable correspond to?
 
-##### Where to find values for the prompts
+#### Where to find values for the prompts
 
 `What is the stock price today?` = Purchase Confirmation > Purchase Details > Calculation of Shares Purchased > Purchase Value per Share
 
@@ -30,7 +30,7 @@ Log in to ETRADE. Go to Stock Plan > My Account > Stock Plan Confirmations. Clic
 
 `How much $ is carrying forward from a previous ESPP purchase period?` = Purchase Confirmation > Purchase Details > Contributions > Previous Carry Forward
 
-##### What each result value corresponds to
+#### What each result value corresponds to
 
 `You have contributed $X to this ESPP period` = Purchase Confirmation > Purchase Details > Contributions > Total Contributions
 
@@ -46,7 +46,7 @@ Log in to ETRADE. Go to Stock Plan > My Account > Stock Plan Confirmations. Clic
 
 `Your taxable gain is $X`  = Purchase Confirmation > Purchase Details > Calculation of Gain > Taxable Gain
 
-#### How do I input my final total ESPP contribution for this period, instead of my contribution per paycheck?
+### How do I input my final total ESPP contribution for this period, instead of my contribution per paycheck?
 
 Let `X` be your final total ESPP contribution for this period. Enter the following responses to each prompt.
 
