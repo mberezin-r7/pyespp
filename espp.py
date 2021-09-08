@@ -16,7 +16,6 @@ yn1 = input("Have you reduced your ESPP contribution in this period (y/N)? ")
 if re.search(re_yes, yn1):
 
     x1 = int(input(f"On what paycheck did you reduce your contribution (1-{pay_cycles})? "))
-    # The first contribution is #1. The last contribution is #26
     # +1 to account for range() method excluding the last value
     x1 = x1 if x1 in range(1, pay_cycles+1) else sys.maxsize
 
