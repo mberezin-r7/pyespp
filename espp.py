@@ -1,5 +1,6 @@
 import sys
 import re
+import math
 
 re_yes = "[Yy]([Ee][Ss])?"
 # There are 13 pay cycles in an ESPP period
@@ -34,6 +35,8 @@ else:
     x2 = sys.maxsize
     y2 = 0
 
+prev_carry_forward = float(input("How much $ is carrying forward from a previous ESPP purchase period? "))
+
 # The ESPP discount is 15% off the lower of either
 # the closing price of the stock on the first day of this offering period, OR
 # the closing price of the stock on the specified purchase date
@@ -41,12 +44,21 @@ rpd_purchase_price = min(rpd_prev, rpd_curr) * 0.85
 
 # Initial contribution per paycheck elected during open enrollment * # of paychecks contributing this amount
 # + decreased contribution per paycheck reduced during purchase period * # of paychecks contributing this amount
-espp_contribution = min(x1, pay_cycles) * y1 + (x2 - x1) * y2
+# + amount rolled over from previous purchase period
+espp_contribution = min(x1, pay_cycles) * y1 + (x2 - x1) * y2 + prev_carry_forward
 
-espp_purchase_value = espp_contribution / rpd_purchase_price * rpd_curr
+rpd_shares = math.floor(espp_contribution / rpd_purchase_price)
+
+espp_purchase_price = rpd_shares * rpd_purchase_price
+espp_purchase_value = rpd_shares * rpd_curr
+
+espp_rollover = espp_contribution - espp_purchase_price
 
 print()
+print(f"You have contributed\t${round(espp_contribution, 2):.2f} to this ESPP period")
 print(f"Your purchase price is\t${round(rpd_purchase_price, 2):.2f} per share")
-print(f"You have contributed\t${round(espp_contribution, 2):.2f}")
+print(f"You have purchased\t{rpd_shares} shares of RPD")
+print(f"For a total price of\t${round(espp_purchase_price, 2):.2f}")
+print(f"You have remaining\t${round(espp_rollover, 2):.2f} carrying forward to the next ESPP period")
 print(f"Your purchase is worth\t${round(espp_purchase_value, 2):.2f}")
-print(f"Your capital gains are\t${round(espp_purchase_value-espp_contribution, 2):.2f}")
+print(f"Your taxable gain is\t${round(espp_purchase_value-espp_contribution, 2):.2f}")
