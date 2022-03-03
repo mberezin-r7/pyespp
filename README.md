@@ -12,6 +12,25 @@ You need Python installed to run this script. It has no dependencies outside of 
 
 Simply run the script with `python espp.py` and fill in the prompts.
 
+## Example
+
+```shell
+$ python espp.py
+What is the stock price today? $100.00
+What was the stock price at the beginning of this ESPP period? $50.00
+How much $ do you contribute to ESPP per paycheck? $250.00
+Have you reduced your ESPP contribution in this period (y/N)? n
+How much $ is carrying forward from a previous ESPP purchase period? $7.00
+
+You have contributed	$3257.00 to this ESPP period
+Your purchase price is	$42.50 per share
+You have purchased	    76 shares of RPD
+For a total price of	$3230.00
+You have remaining	    $27.00 carrying forward to the next ESPP period
+Your purchase is worth	$7600.00 today
+Your taxable gain is	$4370.00
+```
+
 ## FAQ
 
 ### Where can I find my Employee Stock Plan Purchase Confirmation documents?
